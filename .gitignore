@@ -27,3 +27,20 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+# Ignore IDE-specific files
+.idea/
+*.iml
+
+# Ignore compiled Java files
+*.class
+target/
+out/
+
+# Ignore data files
+tasks.dat
+tasks.txt
+
+# Ignore log and temporary files
+*.log
+*.tmp
