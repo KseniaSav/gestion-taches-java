@@ -8,16 +8,26 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Manages a list of tasks, allowing displaying, adding, removing, marking as completed tasks.
+ */
 public class TaskManager {
 
     private List<Task> tasks;
     private static final String FILE_NAME = "tasks.dat";
     private Scanner scanner;
 
+    /**
+     * Initializes a task manager by loading tasks from a file if it exists,
+     * otherwise create a new list.
+     */
     public TaskManager() {
         loadTasks();
     }
 
+    /**
+     * Displays a menu with options and manage the user choice
+     */
     public void start() {
         System.out.println("Bienvenue dans le programme de gestion des taches !");
         scanner = new Scanner(System.in);
@@ -64,6 +74,7 @@ public class TaskManager {
         }
     }
 
+    //displays tasks
     private void displayTasks() {
         if (tasks.isEmpty()) {
             System.out.println("Votre liste de taches est vide");
@@ -77,6 +88,9 @@ public class TaskManager {
         }
     }
 
+    /**
+     * Adds a new task to the list and saves the changes in the file
+     */
     private void addTask() {
         System.out.print("Ecrivez la nouvelle tache: ");
         String s = scanner.nextLine();
@@ -86,6 +100,9 @@ public class TaskManager {
         System.out.println("Une nouvelle tache ajoutée");
     }
 
+    /**
+     * Removes a task, chosen by the user
+     */
     private void removeTask() {
         displayTasks();
         System.out.print("Entrez le numéro de la tache à supprimer: ");
@@ -106,6 +123,9 @@ public class TaskManager {
         }
     }
 
+    /**
+     * Saves the list of tasks to the file
+     */
     private void saveTasksToFile() {
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(FILE_NAME))) {
             out.writeObject(tasks);
@@ -114,6 +134,9 @@ public class TaskManager {
         }
     }
 
+    /**
+     * Loads a list of tasks from a file or create an empty list
+     */
     private void loadTasks() {
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(FILE_NAME))) {
             tasks = (List<Task>) in.readObject();
@@ -122,6 +145,9 @@ public class TaskManager {
         }
     }
 
+    /**
+     * Marks a chosen task as completed
+     */
     private void markTaskAsCompleted() {
         displayTasks();
         System.out.print("Entrez le numéro de la tache terminée: ");
