@@ -156,7 +156,7 @@ public class TaskManager {
             choice = scanner.nextInt();
             scanner.nextLine();
             if (choice > 0 && choice <= tasks.size()) {
-                tasks.get(choice - 1).markAsCompleted();
+                tasks.get(choice - 1).setCompleted();
                 saveTasksToFile();
                 System.out.println("La tache est marquée comme terminée");
             } else {

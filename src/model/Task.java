@@ -38,7 +38,7 @@ public class Task  implements Serializable {
     /**
      * Marks the task as completed.
      */
-    public void markAsCompleted() {
+    public void setCompleted() {
         this.isCompleted = true;
     }
 
