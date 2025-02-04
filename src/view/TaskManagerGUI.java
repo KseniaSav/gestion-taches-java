@@ -25,7 +25,7 @@ public class TaskManagerGUI {
     private void createUI() {
         frame = new JFrame("ToDo List");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
+        frame.setSize(500, 300);
         frame.setLayout(new BorderLayout());
 
         // Task list

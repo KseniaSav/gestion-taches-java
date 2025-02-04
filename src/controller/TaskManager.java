@@ -72,6 +72,6 @@ public class TaskManager {
     }
 
     public List<Task> getTasks() {
-        return tasks;
+        return new ArrayList<>(tasks);
     }
 }
